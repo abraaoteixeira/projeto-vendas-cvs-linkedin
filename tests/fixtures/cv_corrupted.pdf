@@ -1,0 +1,2 @@
+This is a corrupted mock PDF file. It does not contain valid PDF headers, markers, objects, or trailers.
+It is intended to trigger parser failure errors during upload tests.
