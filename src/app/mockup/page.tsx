@@ -184,12 +184,13 @@ function MockupContent() {
               data={{
                 novo_titulo_linkedin: profileData?.novo_titulo_linkedin || "",
                 sobre_persuasivo: profileData?.sobre_persuasivo || "",
+                todas_experiencias: profileData?.todas_experiencias || [],
                 top_3_experiencias_reescritas: profileData?.top_3_experiencias_reescritas || [],
                 profilePhotoUrl: profilePhoto,
                 bannerPhotoUrl: bannerPhoto,
                 nome: profileData?.nome || "Seu Nome Aqui",
               }}
-              isBlurred={false}
+              isBlurred={true}
             />
           </div>
         )}

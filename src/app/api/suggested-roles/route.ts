@@ -66,6 +66,12 @@ export async function GET(request: Request) {
           if (raw.includes('\`\`\`json')) raw = raw.split('\`\`\`json')[1].split('\`\`\`')[0].trim();
           else if (raw.includes('\`\`\`')) raw = raw.split('\`\`\`')[1].trim();
           
+          const jsonStart = raw.indexOf('{');
+          const jsonEnd = raw.lastIndexOf('}');
+          if (jsonStart !== -1 && jsonEnd !== -1) {
+            raw = raw.slice(jsonStart, jsonEnd + 1);
+          }
+          
           const parsed = JSON.parse(raw);
           if (parsed.roles && Array.isArray(parsed.roles)) {
             suggestedRoles = parsed.roles.slice(0, 3);
