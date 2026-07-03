@@ -68,8 +68,8 @@ export async function POST(request: Request) {
 
       // Text Extraction
       try {
-        // Dynamic import to avoid webpack bundling issues with pdf-parse
-        const pdfParse = (await import('pdf-parse')).default;
+        const pdfParseModule = await import('pdf-parse');
+        const pdfParse = pdfParseModule.default || pdfParseModule;
         const data = await pdfParse(buffer);
         extractedText = data.text || '';
         extractedText = extractedText.replace(/\n+/g, '\n').trim();
